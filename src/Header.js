@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Appbar, Avatar, Menu, Button, Divider, Provider } from 'react-native-paper';
+import { NavigationContainer } from '@react-navigation/native';
 
-const Header = ({initials}) => {
+
+const Header = ({initials, navigation}) => {
     const [anchorEl, setAnchorEl] = useState(false);
 
     // My Profile
@@ -31,9 +33,9 @@ const Header = ({initials}) => {
                 <Avatar.Text size={30} label={initials} />
             </Button>}>
             <Menu.Item onPress={() => {}} title="My Profile" />
-            <Menu.Item onPress={() => {}} title="Edit Profile" />
+            <Menu.Item onPress={() => {navigation.navigate('Edit')}} title="Edit Profile" />
             <Divider />
-            <Menu.Item onPress={() => {}} title="All Profiles" />
+            <Menu.Item onPress={() => {navigation.navigate('Users List')}} title="All Profiles" />
             </Menu>
         </View>
         </Appbar.Header>

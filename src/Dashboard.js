@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import { StyleSheet, View, Text, Button } from 'react-native'
 import EditPage from './EditPage'
 import Header from './Header'
+import { NavigationContainer } from '@react-navigation/native';
 
 
-const Dashboard = () => {
+const Dashboard = ({navigation}) => {
     // const [editForm, setEditForm] = useState([])
     const name = 'Drew Pellum'
     const firstName = name.split(' ')[0]
@@ -32,30 +33,8 @@ const Dashboard = () => {
 
     // }
   return (
-//         <SafeAreaProvider>
-//             <View style={styles.container}>
-//                 <HeaderRNE
-//               rightComponent={
-//                   <View style={styles.headerRight}>
-//                     <TouchableOpacity >
-//                       <Icon name="description" color="white" />
-//                     </TouchableOpacity>
-//                     <TouchableOpacity
-//                       style={{ marginLeft: 10 }}
-                      
-//                     >
-//                       <Icon type="antdesign" name="rocket1" color="white" />
-//                     </TouchableOpacity>
-//                   </View>
-//               }
-//               centerComponent={{ text: 'Header', style: styles.heading }}
-//                 />
-//             </View>
-//       </SafeAreaProvider>
-//   )
-// }
     <View>
-        <Header initials={initials}/>
+        <Header initials={initials} navigation={navigation}/>
         {/* <ProfilesList people={people}/> */}
     </View>
   )

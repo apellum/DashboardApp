@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "first": "Drew",
+      "last": "Pellum",
+      "description": "Likes to Code",
+      "profilePic": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.gq.com%2Fstory%2Ftravis-rice-snowboarding-diet&psig=AOvVaw0lKWC_EeKkGBZHngIt427N&ust=1646973275781000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCNDyj9vbuvYCFQAAAAAdAAAAABAD"
+    },
+    {
+      "id": 2,
+      "first": "Tony",
+      "last": "Hawk",
+      "description": "Broke my femur...",
+      "profilePic": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.nbcsandiego.com%2Fnews%2Fsports%2Fgnarly-dude-skateboarding-legend-tony-hawk-suffers-nasty-broken-leg%2F2889999%2F&psig=AOvVaw2fUHl6VO4FkSnVKd6LkpcX&ust=1646973381742000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCKD1pI3cuvYCFQAAAAAdAAAAABAD"
+    }
+  ]
+}

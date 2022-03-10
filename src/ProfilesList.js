@@ -1,11 +1,17 @@
-import React from 'react'
-import { List } from 'react-native-paper'
+import React, { useState, useEffect } from 'react'
+import { List, Text } from 'react-native-paper'
 
 const ProfilesList = () => {
-    const peopleArray = people.map(person => <li>"Name"{person.first} {person.last}</li>)
-    console.log(peopleArray)
+    const [userList, setUserList] = useState([])
+
+    useEffect(() => {
+        fetch("http://localhost:3000/users")
+        .then(resp => resp.json())
+        .then(users => setUserlist(users))
+    }, [])
+    console.log(userList)
   return (
-      {peopleArray}
+      <Text>Hey</Text>
   )
 }
 
