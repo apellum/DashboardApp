@@ -1,14 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import Dashboard from './Dashboard';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import EditPage from './EditPage';
+
 
 export default function App() {
+  
+  const Stack = createNativeStackNavigator();
   return (
-    <View style={styles.container}>
-      <Dashboard/>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen 
+        name="Sandbox"
+        component={Dashboard}
+        />
+        <Stack.Screen name="Edit" component={EditPage} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 

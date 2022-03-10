@@ -1,24 +1,62 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { StyleSheet, View, Text, Button } from 'react-native'
 import EditPage from './EditPage'
+import Header from './Header'
+
 
 const Dashboard = () => {
+    // const [editForm, setEditForm] = useState([])
     const name = 'Drew Pellum'
     const firstName = name.split(' ')[0]
     const lastName = name.split(' ')[1]
     const initials = firstName[0] + lastName[0]
-    console.log(initials)
+
+    const people = [
+        drew = {
+            first: "Drew",
+            last: "Pellum",
+            description: "Loves to code",
+            profilePic: null
+        },
+        steve = {
+            first: "Steve",
+            last: "Wright",
+            description: "Plays with Dog",
+            profilePic: null
+        }
+    ]
+
+    // use effect to bring in the profiles
+    // pass in the state to the edit page
+    // const handlePressEdit = () => {
+
+    // }
   return (
-    <View style={styles.container}>
-        <View style={styles.nav}>
-            <View style={{flex: 1, justifyContent: 'center', left: 66}}>
-                <Text style={styles.text}>Dashboard</Text>
-            </View>
-            <View style={styles.name}>
-                <Button title={initials} ></Button>
-            </View>
-        </View>
-        <EditPage/>
+//         <SafeAreaProvider>
+//             <View style={styles.container}>
+//                 <HeaderRNE
+//               rightComponent={
+//                   <View style={styles.headerRight}>
+//                     <TouchableOpacity >
+//                       <Icon name="description" color="white" />
+//                     </TouchableOpacity>
+//                     <TouchableOpacity
+//                       style={{ marginLeft: 10 }}
+                      
+//                     >
+//                       <Icon type="antdesign" name="rocket1" color="white" />
+//                     </TouchableOpacity>
+//                   </View>
+//               }
+//               centerComponent={{ text: 'Header', style: styles.heading }}
+//                 />
+//             </View>
+//       </SafeAreaProvider>
+//   )
+// }
+    <View>
+        <Header initials={initials}/>
+        {/* <ProfilesList people={people}/> */}
     </View>
   )
 }
@@ -55,4 +93,4 @@ const styles = StyleSheet.create({
         color: '#fff'
     }
   });
-export default Dashboard
+export default Dashboard;
