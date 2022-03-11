@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 import Dashboard from './Dashboard';
 import 'react-native-gesture-handler';
@@ -6,28 +6,72 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import EditPage from './EditPage';
 import ProfilesList from './ProfilesList';
+import NewProfile from './NewProfile';
+import MyProfile from './MyProfile';
 
 
-export default function App({navigation}) {
+export default function App({ navigation }) {
+  const [loggedIn, setLoggedIn] = useState(null)
+  const [users, setUsers] = useState([])
+
+  useEffect(() => {
+    fetch('http://localhost:3001/users')
+      .then(resp => resp.json())
+      .then(data => setUsers(data))
+  }, [])
+
+  // const loggedInUser = (user) => {
+  //   setLoggedIn(user)
+  // }
+  useEffect(() => {
+    console.log('yes', loggedIn)
+
+  }, [loggedIn])
+
 
   const name = 'Drew Pellum'
-    const firstName = name.split(' ')[0]
-    const lastName = name.split(' ')[1]
-    const initials = firstName[0] + lastName[0]
-  
+  const firstName = name.split(' ')[0]
+  const lastName = name.split(' ')[1]
+  const initials = firstName[0] + lastName[0]
+
   const Stack = createNativeStackNavigator();
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Dashboard'>
-        <Stack.Screen 
-        name="Sandbox"
-        component={Dashboard}
-        initials={initials}
-        />
-        <Stack.Screen name="Edit" component={EditPage} initials={initials}
-        />
-        <Stack.Screen name="Users List" component={ProfilesList}
-        />
+        <Stack.Screen name="Sandbox">
+          {(props) => <Dashboard
+            {...props}
+            initials={initials}
+            loggedInUser={setLoggedIn}
+            updateUsers={setUsers}
+          />}
+        </Stack.Screen>
+        <Stack.Screen name="Edit">
+          {(props) => <EditPage
+            {...props}
+            initials={initials}
+            loggedInUser={setLoggedIn}
+          />}
+        </Stack.Screen>
+        <Stack.Screen name="Users List">
+          {(props) => <ProfilesList
+            {...props}
+          />}
+        </Stack.Screen>
+        <Stack.Screen name="Create User">
+          {(props) => <NewProfile
+            {...props}
+            updateUsers={setUsers}
+            loggedInUser={setLoggedIn}
+          />}
+        </Stack.Screen>
+        <Stack.Screen name="My User">
+          {(props) => <MyProfile
+            {...props}
+            updateUsers={setUsers}
+            loggedIn={loggedIn}
+          />}
+        </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );

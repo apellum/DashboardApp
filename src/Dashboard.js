@@ -3,39 +3,30 @@ import { StyleSheet, View, Text, Button } from 'react-native'
 import EditPage from './EditPage'
 import Header from './Header'
 import { NavigationContainer } from '@react-navigation/native';
+import NewProfile from './NewProfile';
 
 
-const Dashboard = ({navigation}) => {
+const Dashboard = ({ navigation, loggedInUser, updateUsers }) => {
+    const [currentUser, setCurrentUser] = useState(null)
     // const [editForm, setEditForm] = useState([])
     const name = 'Drew Pellum'
     const firstName = name.split(' ')[0]
     const lastName = name.split(' ')[1]
     const initials = firstName[0] + lastName[0]
 
-    const people = [
-        drew = {
-            first: "Drew",
-            last: "Pellum",
-            description: "Loves to code",
-            profilePic: null
-        },
-        steve = {
-            first: "Steve",
-            last: "Wright",
-            description: "Plays with Dog",
-            profilePic: null
-        }
-    ]
-
     // use effect to bring in the profiles
     // pass in the state to the edit page
     // const handlePressEdit = () => {
-
     // }
+
+
   return (
     <View>
-        <Header initials={initials} navigation={navigation}/>
+        <Header initials={initials} currentUser={currentUser} navigation={navigation}/>
         {/* <ProfilesList people={people}/> */}
+        <View style={{justifyContent: 'center', alignItems: 'center', top: 150, zIndex: -1}}>
+            <NewProfile navigation={navigation} loggedInUser={loggedInUser} updateUsers={updateUsers}/>
+        </View>
     </View>
   )
 }

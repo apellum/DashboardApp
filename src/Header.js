@@ -4,12 +4,11 @@ import { Appbar, Avatar, Menu, Button, Divider, Provider } from 'react-native-pa
 import { NavigationContainer } from '@react-navigation/native';
 
 
-const Header = ({initials, navigation}) => {
+const Header = ({initials, currentUser, navigation}) => {
     const [anchorEl, setAnchorEl] = useState(false);
 
     // My Profile
     // Edit Profile
-    // All Profiles
     // On Press Functions to make this happen
 
     const handleMenuOpen = () => setAnchorEl(true)

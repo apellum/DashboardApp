@@ -1,17 +1,22 @@
 import React, { useState, useEffect } from 'react'
+import { View } from 'react-native'
 import { List, Text } from 'react-native-paper'
+import ProfileCard from './ProfileCard'
 
 const ProfilesList = () => {
-    const [userList, setUserList] = useState([])
+    const [userList, setUserlist] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:3000/users")
+        fetch("http://localhost:3001/users")
         .then(resp => resp.json())
-        .then(users => setUserlist(users))
+        .then(usersDb => setUserlist(usersDb))
     }, [])
-    console.log(userList)
+    const usersArray = userList.map((user, index) => <ProfileCard user={user} />)
   return (
-      <Text>Hey</Text>
+    //   <List>{usersArray}</List>
+    <View>
+        {usersArray}
+    </View>
   )
 }
 
