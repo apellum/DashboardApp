@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react'
-import { View, Text } from 'react-native'
+import React, { useState } from 'react'
+import { View, Text, Image } from 'react-native'
 
 const MyProfile = ({ loggedIn }) => {
-    console.log("readthis",loggedIn)
+    if (! (loggedIn)) return <Text>Loading</Text>
   return (
-    <View>
+    <View style={{padding: 20, justifyContent: 'center', alignItems: 'center'}}>
         <Text>{loggedIn.name}</Text>
         <Text>{loggedIn.description}</Text>
+        <Image style={{height: 100, width: 100, borderRadius: 50}} source={{uri: loggedIn.profile_picture}}/>
     </View>
   )
 }

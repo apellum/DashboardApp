@@ -54,12 +54,13 @@ const handlePost = (obj) => {
         onChangeText={onChangeField('description')}
       />
       <TextInput
+        autoComplete={false}
+        autoCorrect={false}
         placeholder="Profile Picture URL"
         onChangeText={onChangeField('profile_picture')}
       />
       <Button title="Submit" onPress={handleSubmit((user) => setUser(JSON.stringify(user))),
         handleSubmit(onSubmit)
-    // navigation.navigate('My User')
     } />
     </View>
   );
