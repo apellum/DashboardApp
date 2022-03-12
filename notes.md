@@ -7,3 +7,9 @@ description
 profile pic
 
 Bonus: Sessions controller
+
+
+Finishing Features
+ReadME
+Initial Functionality
+MERN

@@ -15,7 +15,7 @@ const Dashboard = ({ navigation, loggedInUser, updateUsers, loggedIn }) => {
 
   return (
     <View>
-        {loggedIn ? <Header initials={initials} navigation={navigation}/> : null}
+        {loggedIn ? <Header navigation={navigation} loggedIn={loggedIn}/> : null}
         <View style={{justifyContent: 'center', alignItems: 'center', top: 150, zIndex: -1}}>
             <NewProfile navigation={navigation} loggedInUser={loggedInUser} updateUsers={updateUsers}/>
         </View>

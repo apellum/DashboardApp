@@ -4,12 +4,18 @@ import { Appbar, Avatar, Menu, Button, Divider, Provider } from 'react-native-pa
 import { NavigationContainer } from '@react-navigation/native';
 
 
-const Header = ({initials, navigation}) => {
+const Header = ({ navigation, loggedIn}) => {
     const [anchorEl, setAnchorEl] = useState(false);
 
     const handleMenuOpen = () => setAnchorEl(true)
 
     const closeMenu = () => setAnchorEl(false)
+
+    console.log('loggedIn', loggedIn)
+
+    const firstName = loggedIn.name.split(' ')[0]
+    const lastName = loggedIn.name.split(' ')[1]
+    const letters = firstName[0] + lastName[0]
 
   return (
       <Provider>
@@ -25,7 +31,7 @@ const Header = ({initials, navigation}) => {
             visible={anchorEl}
             onDismiss={closeMenu}
             anchor={<Button onPress={handleMenuOpen}>
-                <Avatar.Text size={30} label={initials} />
+                <Avatar.Text size={30} label={letters} />
             </Button>}>
             <Menu.Item onPress={() => {navigation.navigate('My User'), closeMenu()}} title="My Profile" />
             <Menu.Item onPress={() => {navigation.navigate('Edit'), closeMenu()}} title="Edit Profile" />

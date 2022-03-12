@@ -8,6 +8,7 @@ import EditPage from './EditPage';
 import ProfilesList from './ProfilesList';
 import NewProfile from './NewProfile';
 import MyProfile from './MyProfile';
+import Header from './Header';
 
 
 export default function App({ navigation }) {
@@ -20,10 +21,10 @@ export default function App({ navigation }) {
       .then(data => setUsers(data))
   }, [])
 
-  const name = 'Drew Pellum'
-  const firstName = name.split(' ')[0]
-  const lastName = name.split(' ')[1]
-  const initials = firstName[0] + lastName[0]
+  // const name = 'Drew Pellum'
+  // const firstName = loggedIn.name.split(' ')[0]
+  // const lastName = loggedIn.name.split(' ')[1]
+  // const initials = firstName[0] + lastName[0]
 
   const Stack = createNativeStackNavigator();
   return (
@@ -32,7 +33,6 @@ export default function App({ navigation }) {
         <Stack.Screen name="Sandbox">
           {(props) => <Dashboard
             {...props}
-            initials={initials}
             loggedInUser={setLoggedIn}
             loggedIn={loggedIn}
             updateUsers={setUsers}
