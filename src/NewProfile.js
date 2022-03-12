@@ -1,7 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { View, Button, TextInput } from 'react-native';
 import { useForm } from 'react-hook-form';
-// import { forceTouchGestureHandlerProps } from 'react-native-gesture-handler/lib/typescript/handlers/ForceTouchGestureHandler';
 
 
 const NewProfile = ({ loggedInUser, updateUsers, navigation }) => {
@@ -11,7 +10,7 @@ const NewProfile = ({ loggedInUser, updateUsers, navigation }) => {
         description: "",
         profile_picture: ""
     })
-  const { control, handleSubmit, register, setValue } = useForm();
+  const { control, handleSubmit, setValue } = useForm();
 
 const handlePost = (obj) => {
     // event.preventDefault();
@@ -44,6 +43,7 @@ const handlePost = (obj) => {
   return (
     <View>
       <TextInput
+        style={{height: 40, width: 200, borderColor: 'blue', borderWidth: 1,  marginBottom: 20 }}
         autoComplete={false}
         autoCorrect={false}
         textContentType="name"
@@ -51,12 +51,16 @@ const handlePost = (obj) => {
         onChangeText={onChangeField('name')}
       />
       <TextInput
+        style={{height: 40, width: 200, borderColor: 'blue', borderWidth: 1,  marginBottom: 20 }}
         autoComplete={false}
         autoCorrect={false}
+        multiline
+        numberOfLines={4}
         placeholder="Description"
         onChangeText={onChangeField('description')}
       />
       <TextInput
+        style={{height: 40, width: 200, borderColor: 'blue', borderWidth: 1,  marginBottom: 20 }}
         autoComplete={false}
         autoCorrect={false}
         placeholder="Profile Picture URL"

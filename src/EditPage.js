@@ -1,9 +1,8 @@
 import React, { useState, useCallback } from 'react'
 import { TextInput, View, StyleSheet, Button } from 'react-native'
 import { useForm } from 'react-hook-form';
-import { setStatusBarNetworkActivityIndicatorVisible } from 'expo-status-bar';
 
-const EditPage = ({initials, loggedIn, loggedInUser, navigation}) => {
+const EditPage = ({ loggedIn, loggedInUser, navigation}) => {
     const [editForm, setEditForm] = useState({
         name: "",
         description: "",
@@ -71,7 +70,6 @@ const EditPage = ({initials, loggedIn, loggedInUser, navigation}) => {
 }
 const styles = StyleSheet.create({
     container: {
-    //   flex: 1,
       backgroundColor: '#fff',
       alignItems: 'center',
       justifyContent: 'center',

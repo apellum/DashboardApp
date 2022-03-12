@@ -8,10 +8,9 @@ import EditPage from './EditPage';
 import ProfilesList from './ProfilesList';
 import NewProfile from './NewProfile';
 import MyProfile from './MyProfile';
-import Header from './Header';
 
 
-export default function App({ navigation }) {
+export default function App() {
   const [loggedIn, setLoggedIn] = useState(null)
   const [users, setUsers] = useState([])
 
@@ -36,7 +35,6 @@ export default function App({ navigation }) {
         <Stack.Screen name="Edit">
           {(props) => <EditPage
             {...props}
-            initials={initials}
             loggedInUser={setLoggedIn}
             loggedIn={loggedIn}
           />}

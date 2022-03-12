@@ -1,8 +1,6 @@
-import React, { useState } from 'react'
-import { StyleSheet, View, Text, Button } from 'react-native'
-import EditPage from './EditPage'
+import React from 'react'
+import { StyleSheet, View } from 'react-native'
 import Header from './Header'
-import { NavigationContainer } from '@react-navigation/native';
 import NewProfile from './NewProfile';
 
 
@@ -38,12 +36,10 @@ const styles = StyleSheet.create({
         color: '#fff',
         justifyContent: 'center',
         alignItems: 'center',
-        // flex: 1,
         textAlign: 'center'
     },
     name: {
         flex: 1,
-        // paddingTop: 15,
         marginVertical: 0,
         left: 75,
         borderRadius: 15,

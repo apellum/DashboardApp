@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Appbar, Avatar, Menu, Button, Divider, Provider } from 'react-native-paper';
-import { NavigationContainer } from '@react-navigation/native';
 
 
 const Header = ({ navigation, loggedIn}) => {
@@ -21,7 +20,6 @@ const Header = ({ navigation, loggedIn}) => {
         <Appbar.Content style={styles.title} title="Dashboard" />
         <View
             style={{
-            //   paddingTop: 50,
             flexDirection: 'row',
             justifyContent: 'center',
             }}>

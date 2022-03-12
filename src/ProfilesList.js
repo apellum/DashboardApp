@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, FlatList, ScrollView } from 'react-native'
-import { List, Text } from 'react-native-paper'
+import { ScrollView } from 'react-native'
 import ProfileCard from './ProfileCard'
 
 const ProfilesList = () => {
@@ -13,7 +12,6 @@ const ProfilesList = () => {
     }, [])
     const usersArray = userList.map((user, index) => <ProfileCard key={user.id} user={user} />)
   return (
-    //   <List>{usersArray}</List>
     <ScrollView>
         {usersArray}
     </ScrollView>
