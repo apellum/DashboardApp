@@ -7,10 +7,6 @@ import { NavigationContainer } from '@react-navigation/native';
 const Header = ({initials, navigation}) => {
     const [anchorEl, setAnchorEl] = useState(false);
 
-    // My Profile
-    // Edit Profile
-    // On Press Functions to make this happen
-
     const handleMenuOpen = () => setAnchorEl(true)
 
     const closeMenu = () => setAnchorEl(false)
@@ -31,10 +27,10 @@ const Header = ({initials, navigation}) => {
             anchor={<Button onPress={handleMenuOpen}>
                 <Avatar.Text size={30} label={initials} />
             </Button>}>
-            <Menu.Item onPress={() => {navigation.navigate('My User')}} title="My Profile" />
-            <Menu.Item onPress={() => {navigation.navigate('Edit')}} title="Edit Profile" />
+            <Menu.Item onPress={() => {navigation.navigate('My User'), closeMenu()}} title="My Profile" />
+            <Menu.Item onPress={() => {navigation.navigate('Edit'), closeMenu()}} title="Edit Profile" />
             <Divider />
-            <Menu.Item onPress={() => {navigation.navigate('Users List')}} title="All Profiles" />
+            <Menu.Item onPress={() => {navigation.navigate('Users List'), closeMenu()}} title="All Profiles" />
             </Menu>
         </View>
         </Appbar.Header>
