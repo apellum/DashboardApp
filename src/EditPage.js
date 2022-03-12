@@ -12,7 +12,7 @@ const EditPage = ({ loggedIn, loggedInUser, navigation}) => {
     const { control, handleSubmit, setValue } = useForm();
 
     function updateUser (user) {
-        fetch("http://localhost:3001/users/" + loggedIn.id, {
+        fetch("https://sandbox-dashboard-server.herokuapp.com/users/" + loggedIn.id, {
         method: "PATCH", 
         headers: {
             "Content-Type": "application/json",

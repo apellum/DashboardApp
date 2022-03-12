@@ -6,11 +6,11 @@ const ProfilesList = () => {
     const [userList, setUserlist] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:3001/users")
+        fetch("https://sandbox-dashboard-server.herokuapp.com/users")
         .then(resp => resp.json())
         .then(usersDb => setUserlist(usersDb))
     }, [])
-    const usersArray = userList.map((user, index) => <ProfileCard key={user.id} user={user} />)
+    const usersArray = userList.map((user) => <ProfileCard key={user.id} user={user} />)
   return (
     <ScrollView>
         {usersArray}

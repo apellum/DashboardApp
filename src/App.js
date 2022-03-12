@@ -15,7 +15,7 @@ export default function App() {
   const [users, setUsers] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:3001/users')
+    fetch('https://sandbox-dashboard-server.herokuapp.com/users')
       .then(resp => resp.json())
       .then(data => setUsers(data))
   }, [])

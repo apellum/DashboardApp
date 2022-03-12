@@ -10,11 +10,10 @@ const NewProfile = ({ loggedInUser, updateUsers, navigation }) => {
         description: "",
         profile_picture: ""
     })
-  const { control, handleSubmit, setValue } = useForm();
+  const { control, handleSubmit, setValue, reset } = useForm();
 
 const handlePost = (obj) => {
-    // event.preventDefault();
-    fetch(`http://localhost:3001/users`, {
+    fetch(`https://sandbox-dashboard-server.herokuapp.com/users`, {
         method: "POST",
         headers: {
             'Accept': 'application/json',
@@ -24,7 +23,7 @@ const handlePost = (obj) => {
     })
     .then(resp => resp.json())
     .then((data)=>{
-        setNewUserForm('');
+        setNewUserForm({name: '', description: '', profile_picture: ''});
         updateUsers(data)
         loggedInUser(data)
     })
