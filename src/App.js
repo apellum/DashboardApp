@@ -21,11 +21,6 @@ export default function App({ navigation }) {
       .then(data => setUsers(data))
   }, [])
 
-  // const name = 'Drew Pellum'
-  // const firstName = loggedIn.name.split(' ')[0]
-  // const lastName = loggedIn.name.split(' ')[1]
-  // const initials = firstName[0] + lastName[0]
-
   const Stack = createNativeStackNavigator();
   return (
     <NavigationContainer>

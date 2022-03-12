@@ -25,7 +25,6 @@ const EditPage = ({initials, loggedIn, loggedInUser, navigation}) => {
         .then(user => {
             loggedInUser(user)
             setEditForm(user)
-            console.log('user',user)
         })
     
     }

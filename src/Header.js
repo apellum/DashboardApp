@@ -11,8 +11,6 @@ const Header = ({ navigation, loggedIn}) => {
 
     const closeMenu = () => setAnchorEl(false)
 
-    console.log('loggedIn', loggedIn)
-
     const firstName = loggedIn.name.split(' ')[0]
     const lastName = loggedIn.name.split(' ')[1]
     const letters = firstName[0] + lastName[0]

@@ -7,11 +7,6 @@ import NewProfile from './NewProfile';
 
 
 const Dashboard = ({ navigation, loggedInUser, updateUsers, loggedIn }) => {
-    // const [editForm, setEditForm] = useState([])
-    const name = 'Drew Pellum'
-    const firstName = name.split(' ')[0]
-    const lastName = name.split(' ')[1]
-    const initials = firstName[0] + lastName[0]
 
   return (
     <View>

@@ -44,11 +44,15 @@ const handlePost = (obj) => {
   return (
     <View>
       <TextInput
+        autoComplete={false}
+        autoCorrect={false}
         textContentType="name"
-        placeholder="Name"
+        placeholder="First and Last Name"
         onChangeText={onChangeField('name')}
       />
       <TextInput
+        autoComplete={false}
+        autoCorrect={false}
         placeholder="Description"
         onChangeText={onChangeField('description')}
       />
