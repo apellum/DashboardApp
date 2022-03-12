@@ -3,7 +3,7 @@ import { TextInput, View, StyleSheet, Button } from 'react-native'
 import { useForm } from 'react-hook-form';
 import { setStatusBarNetworkActivityIndicatorVisible } from 'expo-status-bar';
 
-const EditPage = ({initials, loggedIn, loggedInUser}) => {
+const EditPage = ({initials, loggedIn, loggedInUser, navigation}) => {
     const [editForm, setEditForm] = useState({
         name: "",
         description: "",
