@@ -1,8 +1,7 @@
-import React, { useEffect, useCallback, useState } from 'react';
-import { View, Switch, Button, TextInput } from 'react-native';
-import { useForm, Controller } from 'react-hook-form';
+import React, { useCallback, useState } from 'react';
+import { View, Button, TextInput } from 'react-native';
+import { useForm } from 'react-hook-form';
 // import { forceTouchGestureHandlerProps } from 'react-native-gesture-handler/lib/typescript/handlers/ForceTouchGestureHandler';
-import { NavigationContainer } from '@react-navigation/native';
 
 
 const NewProfile = ({ loggedInUser, updateUsers, navigation }) => {

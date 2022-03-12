@@ -20,15 +20,6 @@ export default function App({ navigation }) {
       .then(data => setUsers(data))
   }, [])
 
-  // const loggedInUser = (user) => {
-  //   setLoggedIn(user)
-  // }
-  useEffect(() => {
-    console.log('yes', loggedIn)
-
-  }, [loggedIn])
-
-
   const name = 'Drew Pellum'
   const firstName = name.split(' ')[0]
   const lastName = name.split(' ')[1]
@@ -43,6 +34,7 @@ export default function App({ navigation }) {
             {...props}
             initials={initials}
             loggedInUser={setLoggedIn}
+            loggedIn={loggedIn}
             updateUsers={setUsers}
           />}
         </Stack.Screen>
@@ -51,6 +43,7 @@ export default function App({ navigation }) {
             {...props}
             initials={initials}
             loggedInUser={setLoggedIn}
+            loggedIn={loggedIn}
           />}
         </Stack.Screen>
         <Stack.Screen name="Users List">

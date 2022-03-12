@@ -4,7 +4,7 @@ import { Appbar, Avatar, Menu, Button, Divider, Provider } from 'react-native-pa
 import { NavigationContainer } from '@react-navigation/native';
 
 
-const Header = ({initials, currentUser, navigation}) => {
+const Header = ({initials, navigation}) => {
     const [anchorEl, setAnchorEl] = useState(false);
 
     // My Profile
@@ -31,7 +31,7 @@ const Header = ({initials, currentUser, navigation}) => {
             anchor={<Button onPress={handleMenuOpen}>
                 <Avatar.Text size={30} label={initials} />
             </Button>}>
-            <Menu.Item onPress={() => {}} title="My Profile" />
+            <Menu.Item onPress={() => {navigation.navigate('My User')}} title="My Profile" />
             <Menu.Item onPress={() => {navigation.navigate('Edit')}} title="Edit Profile" />
             <Divider />
             <Menu.Item onPress={() => {navigation.navigate('Users List')}} title="All Profiles" />

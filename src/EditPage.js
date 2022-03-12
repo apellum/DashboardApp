@@ -1,29 +1,70 @@
-import React from 'react'
+import React, { useState, useCallback } from 'react'
 import { TextInput, View, StyleSheet, Button } from 'react-native'
-import Header from './Header';
+import { useForm } from 'react-hook-form';
+import { setStatusBarNetworkActivityIndicatorVisible } from 'expo-status-bar';
 
-const EditPage = ({initials}) => {
-    initials = 'DP'
+const EditPage = ({initials, loggedIn, loggedInUser}) => {
+    const [editForm, setEditForm] = useState({
+        name: "",
+        description: "",
+        profile_picture: ""
+    })
+
+    const { control, handleSubmit, setValue } = useForm();
+
+    function updateUser (user) {
+        fetch("http://localhost:3001/users/" + loggedIn.id, {
+        method: "PATCH", 
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        }, 
+        body: JSON.stringify(user)
+        })
+        .then(resp => resp.json())
+        .then(user => {
+            loggedInUser(user)
+            setEditForm(user)
+            console.log('user',user)
+        })
+    
+    }
+
+    const onSubmit = useCallback(formData => {
+        updateUser(formData)
+        navigation.navigate('My User')
+      }, []);
+      const onChangeField = useCallback(
+        name => text => {
+          setValue(name, text);
+        },
+        []
+      );
   return (
-      <View>
-          <View style={styles.header}>
-            <Header initials={initials}/>
-          </View>
+      <View style={{width: '100%', height: '100%'}}>
          <View style={styles.container}>
             <View style={styles.row}>
-                <TextInput>Name</TextInput>
-                <Button title='Enter'></Button>
+                <TextInput
+                placeholder={loggedIn.name}
+                onChangeText={onChangeField('name')}
+                />
             </View>
             <View style={styles.row}>
-                <TextInput>Description of Yourself</TextInput>
-                <Button title='Enter'></Button>
+                <TextInput 
+                placeholder={loggedIn.description}
+                onChangeText={onChangeField('description')}
+                />
             </View>
             <View style={styles.row}>
-                <TextInput>Profile Picture</TextInput>
-                <Button title='Enter'></Button>
+                <TextInput 
+                placeholder={loggedIn.profile_picture}
+                onChangeText={onChangeField('profile_picture')}
+                />
             </View>
             <View>
-                <Button title='Save'></Button>
+                <Button title='Save' onPress={handleSubmit((user) => setUser(JSON.stringify(user))),
+                handleSubmit(onSubmit)
+                 } />
             </View>
         </View>
       </View>

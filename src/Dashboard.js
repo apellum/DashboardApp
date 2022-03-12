@@ -6,24 +6,16 @@ import { NavigationContainer } from '@react-navigation/native';
 import NewProfile from './NewProfile';
 
 
-const Dashboard = ({ navigation, loggedInUser, updateUsers }) => {
-    const [currentUser, setCurrentUser] = useState(null)
+const Dashboard = ({ navigation, loggedInUser, updateUsers, loggedIn }) => {
     // const [editForm, setEditForm] = useState([])
     const name = 'Drew Pellum'
     const firstName = name.split(' ')[0]
     const lastName = name.split(' ')[1]
     const initials = firstName[0] + lastName[0]
 
-    // use effect to bring in the profiles
-    // pass in the state to the edit page
-    // const handlePressEdit = () => {
-    // }
-
-
   return (
     <View>
-        <Header initials={initials} currentUser={currentUser} navigation={navigation}/>
-        {/* <ProfilesList people={people}/> */}
+        {loggedIn ? <Header initials={initials} navigation={navigation}/> : null}
         <View style={{justifyContent: 'center', alignItems: 'center', top: 150, zIndex: -1}}>
             <NewProfile navigation={navigation} loggedInUser={loggedInUser} updateUsers={updateUsers}/>
         </View>
